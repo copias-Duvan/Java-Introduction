@@ -1,0 +1,87 @@
+--Comentario
+
+/*
+Tabla de estudiantes
+/*
+Identificacion
+Nombre
+Apellido
+Edad
+lenguaje de programacion
+*/
+/*
+CREATE TABLE Nombre_Tabla (
+    columna1 tipo [atributos (opcionales)],
+    columna2 tipo [atributos (opcionales)],
+    ...
+    columnaN tipo [atributos (opcionales)]
+)
+Atributos
+NOT NULL : la columna no permite valores vacíos
+NULL : la columna si permite valores vacíos
+*/
+CREATE TABLE ESTU (
+ IDENTIFICACION INT NOT NULL,   
+ NOMBRE TEXT NOT NULL,
+ EDAD INT NOT NULL,
+ LENGUAJE TEXT NOT NULL 
+);
+--Insercion de datos a la tabla
+INSERT INTO ESTU(IDENTIFICACION,NOMBRE,EDAD,LENGUAJE) 
+VALUES(10343434, 'DUVAN', 18, 'PYTHON');
+
+INSERT INTO ESTU(IDENTIFICACION,NOMBRE,EDAD,LENGUAJE) 
+VALUES(32930239, 'GONZA', 18, 'JAVA');
+--Actualizar datos de una tabla
+UPDATE ESTU
+SET NOMBRE = 'RAMIRO'
+WHERE IDENTIFICACION = 10343434;
+
+--Actualizar datos de forma en general es decir datos que contengan caracteristicas en comun
+UPDATE ESTU
+SET LENGUAJE = 'JAVASCRIPT'
+--Operadores arimeticos
+WHERE EDAD > 18;
+--Operador para la diferencia es <>
+
+--Eliminar filas de una tabla de forma codificada
+DELETE FROM ESTU
+WHERE NOMBRE = 'GONZA';
+/*Es importante especificar una condicion ya que
+si no se hace se eliman todas las filas de la tabla
+*/
+
+--Consulta de datos
+
+--Obtener todos los datos de la tabla
+SELECT *
+FROM ESTU;
+
+--Obtener columnas especificas de la tabla
+SELECT NOMBRE
+FROM ESTU;
+
+--Cambiar el nombre de la columna en la consulta
+SELECT LENGUAJE AS 'PROGRAMACION'
+FROM ESTU;
+
+--Operaciones con valares de las columnas
+SELECT (EDAD + 2)
+FROM ESTU;
+
+--Operaciones entre columnas 
+SELECT (NOMBRE || EDAD) AS 'NOMBRE EDAD'
+FROM ESTU;
+
+--Consultar con filtros
+SELECT *
+FROM ESTU
+WHERE EDAD = 20;
+
+--WHERE CIUDAD <> 'Barranquilla' AND EDAD < 18;
+-- En una hipotetica tabla traeria la fila con estos datos 
+
+-- Consulta y Ordenar los resultados
+SELECT *
+FROM ESTU
+ORDER BY NOMBRE ASC
